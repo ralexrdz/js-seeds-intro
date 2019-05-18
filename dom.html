@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    .div1, .div2, .div3 {
+      margin: 10px;
+      padding: 30px;
+      border: 1px solid black;
+    }
+
+    .elemento {
+      margin: 19px;
+      background-color: lightgoldenrodyellow;
+
+    }
+  </style>
+</head>
+<body>
+  <h1>DOM</h1>
+  <script src="./dom.js"></script>
+  <div>
+    <button onclick="diAdios()">Adios</button>
+  </div>
+
+  <div>
+    No recibe números: <input type="text" onkeydown="queTasEscribiendo(event)">
+  </div>
+
+  <div class="div1" onclick="meCliquiaron(event)">
+    <div class="div2" onclick="meCliquiaron(event)">
+      <div class="div3" onclick="meCliquiaron(event)">
+        hola
+      </div>
+    </div>
+  </div>
+
+  <div id="contenedor" class="container">
+    <div id="subcontenedor" class="container">
+      <div class="elemento">0</div>
+      <div class="elemento">1</div>
+      <div class="elemento">2</div>
+      <div class="elemento">3</div>
+      <div class="elemento">4</div>
+    </div>
+  </div>
+
+  <div id="contenedor" class="container">
+    <div id="subcontenedor" class="container">
+      <div class="elemento primis">0</div>
+      <div class="elemento">1</div>
+      <div class="elemento">2</div>
+      <div class="elemento">3</div>
+      <div class="elemento">4</div>
+    </div>
+  </div>
+
+  <script>
+    let globali = 'asdasd'
+  </script>
+  <script>
+    console.log('inHTML')
+  </script>
+</body>
+</html>
