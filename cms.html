@@ -11,6 +11,7 @@
     }
   header {
     position: fixed;
+    top: 0;
   }
   #container {
     margin: 100px;
@@ -20,28 +21,34 @@
 <body>
   <header>
     <div>
-      <button>Agrega Titulo 1</button>
-    
-      <button>Agrega Titulo 2</button>
-    
-      <button>Agrega Titulo 3</button>
-    
-      <button>Agrega Titulo 4</button>
+      Texto del titulo: <input type="text" id="titleInput">
     </div>
     <div>
-      <button>Agrega Parrafo</button>
+      <button onclick="addTitle(1)">Agrega Titulo 1</button>
+    
+      <button onclick="addTitle(2)">Agrega Titulo 2</button>
+    
+      <button onclick="addTitle(3)">Agrega Titulo 3</button>
+    
+      <button onclick="addTitle(4)">Agrega Titulo 4</button>
     </div>
     <div>
-      <button>Agrega image</button>
+      <button onclick="addTextArea">Agrega Parrafo</button>
+    </div>
+    <div>
+      <button onclick="addImage">Agrega image</button>
       <input type="text" id="imageInput">
     </div>
     <div>
-      <button>Agrega video</button>
-      <input type="text" id="videoinput">
+      <button onclick="addVideo">Agrega video</button>
+      <input type="text" id="videoInput">
     </div>
   </header>
   <section id="container">
     <h1>CMS</h1>
+    <hr>
   </section>
+  <script src="./cms.js"></script>
+  
 </body>
 </html>
