@@ -16,12 +16,17 @@
   #container {
     margin: 100px;
   }
+
+  .error {
+    color: red;
+  }
   </style>
 </head>
 <body>
   <header>
     <div>
-      Texto del titulo: <input type="text" id="titleInput">
+      Texto del titulo: <input type="text" id="titleInput"> 
+      <span class="error" id="emptyTitleErr" hidden>No se puede agregar un título vacío</span>
     </div>
     <div>
       <button onclick="addTitle(1)">Agrega Titulo 1</button>
@@ -33,20 +38,25 @@
       <button onclick="addTitle(4)">Agrega Titulo 4</button>
     </div>
     <div>
-      <button onclick="addTextArea">Agrega Parrafo</button>
+      <button onclick="addTextArea()">Agrega Parrafo</button>
     </div>
     <div>
-      <button onclick="addImage">Agrega image</button>
+      <button onclick="addImage()">Agrega image</button>
       <input type="text" id="imageInput">
+      <span class="error" id="emptyImageErr" hidden>No se puede agregar una imagen vacía</span>
+
     </div>
     <div>
-      <button onclick="addVideo">Agrega video</button>
+      <button onclick="addVideo()">Agrega video</button>
       <input type="text" id="videoInput">
+      <span class="error" id="emptyVideoErr" hidden>No se puede agregar un video vacío</span>
+
     </div>
   </header>
   <section id="container">
     <h1>CMS</h1>
     <hr>
+
   </section>
   <script src="./cms.js"></script>
   
