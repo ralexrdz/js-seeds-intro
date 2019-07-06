@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Referencias</h1>
+  <div id="inputsRefs">
+    <div>
+      <input type="text" placeholder="Escribe un contacto">
+      <button onclick="borrame(this.parentNode)">x</button>
+      <!-- <button onclick="borrame(event)">x</button> -->
+    </div>
+    <!-- Aqui van los nuevos -->
+  </div>
+  <button onclick="agregaInputReferencia()">Agrega referencia</button>
+  <script>
+    function agregaInputReferencia () {
+      let inputs = document.getElementById('inputsRefs')
+      let newInputDiv = document.createElement('div')
+
+      // let newInput = document.createElement('input')
+      // let newbutton = document.createElement('button')
+      // newInputDiv.append(newInput)
+      // newInputDiv.append(newButton)
+
+      newInputDiv.innerHTML = `
+        <input type="text" placeholder="Escribe un contacto">
+        <button onclick="borrame(this.parentNode)">x</button>
+      `
+      inputs.append(newInputDiv)
+    }
+
+    function borrame (e) {
+      // e.target.parentElement.remove()
+      e.remove()
+    }
+  </script>
+</body>
+</html>
