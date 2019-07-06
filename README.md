@@ -41,6 +41,11 @@ element.append(tag)
 element.remove()
 ```
 
+```
+let element = document.getElementById('un-id')
+element.classNames = 'blue red error'
+```
+
 Un HTMLCollection 
 
 
@@ -49,3 +54,10 @@ Un HTMLCollection
 Div.nums > 5 divs [1..5]
 
 button funcion que le sume 1 a cada div dentro de .nums
+
+
+Ejercicio formulario
+
+Que valide las siguiente opciones
+
+![](./ejercicio-formulario.png)
