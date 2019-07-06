@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  hola
+  <script>
+
+    let x = 0 
+
+    setInterval( () => {
+      console.log(x)
+      x ++
+    }, 1000)
+
+    start()
+
+    async function asincrona () {
+      return new Promise(resolve => setTimeout(() => {
+        resolve('hola')
+      }, 2000))
+    }
+    async function asincrona2 () {
+      return new Promise(resolve => setTimeout(() => {
+        resolve('hola2')
+      }, 3000))
+    }
+    async function asincrona3 () {
+      return new Promise(resolve => setTimeout(() => {
+        resolve('hola3')
+      }, 4000))
+    }
+    async function asincrona4 () {
+      return new Promise(resolve => setTimeout(() => {
+        resolve('hola4')
+      }, 1000))
+    }
+
+    async function start () {
+      // Todas arrancan al mismo tiempo y se ejecuta el console cuando termina cada una
+      let a1 = asincrona().then(res => console.log(res))
+      let a2 = asincrona2().then(res => console.log(res))
+      let a3 = asincrona3().then(res => console.log(res))
+      let a4 = asincrona4().then(res => console.log(res))
+    }
+
+
+  </script>
+</body>
+</html>
