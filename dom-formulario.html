@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .error {
+      font-size: 0.5em;
+      color: red;
+    }
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div>
+      <div>Escribe un número menor a 10</div>
+      <div><input id="input-num" type="text" onchange=></div>
+      <div>
+        <div class="error" id="errorNan" hidden>No es un número</div>
+        <div class="error" id="errorMuyGrande" hidden>No menor a 10</div>
+      </div>
+  </div>
+  <div>
+      <div>Escribe un texto de más de 10 caracteres</div>
+      <div><input id="input-txt" type="text"></div>
+      <div class="error" id="errorMuyChico" hidden>Tiene menos de 10 caracteres</div>
+  </div>
+  <div>
+      <div>Selecciona una opción</div>
+      <div>
+        <select name="" id="opciones">
+          <option></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="error" id="noOpciones" hidden>Tienes que seleccionar una opción</div>
+  </div>
+  <div>
+    <button onclick="validar()">Validar y mandar</button>
+    <div>
+      <div class="error" id="mal" hidden>Hay errores</div>
+      <div class="success" id="bien" hidden>Formulario valido ha sido enviados</div>
+    </div>
+  </div>
+  <script>
+    function validar () {
+      // Validar campo de número
+      let numCorrecto = validaNumero()
+      // Validar campo de texto
+      let textoCorrecto = validaTexto()
+      // Validar campo de opciones
+      let opcionSeleciconada = validaOpciones()
+
+      if (numCorrecto == 'NaN') {
+        muestraErrorNaN()
+      } else if (numCorrecto == '>10') {
+        muestraErrorNumMuyGrande()
+      } else if (numCorrecto == '<=10') {
+        ocultaErroresNum()
+      }
+
+      if (textoCorrecto == '<=10' ) {
+        muestraErrorMuyChico()
+      } else {
+        ocultaErrorTxt()
+      }
+
+      if (opcionSeleciconada == 'no-val') {
+        muestraErrorOpcion()
+      } else {
+        quitaErrorOpcion()
+      }
+
+      validacionGeneral(numCorrecto, textoCorrecto, opcionSeleciconada)
+
+
+    }
+
+    function validaNumero () {
+      let inputNum = document.getElementById('input-num') 
+      if (isNaN(parseInt(inputNum.value))) {
+        // no es numero
+        return 'NaN'
+      } else {
+        let num = parseInt(inputNum.value)
+        if (num > 10) {
+          return '>10'
+        } else {
+          return '<=10'
+        } 
+
+      }
+    }
+
+    function validaTexto () {
+      let txt = document.getElementById('input-txt').value 
+      if (txt.length > 10) {
+        return '>10'
+      } else {
+        return '<=10'
+      }
+    }
+
+    function validaOpciones () {
+      let val = document.getElementById('opciones').value 
+      if (val) {
+        return 'val'
+      } else {
+        return 'no-val'
+      }
+    }
+
+    function muestraErrorNaN () {
+      document.getElementById('errorNan').hidden = false
+      document.getElementById('errorMuyGrande').hidden = true
+    }
+    function muestraErrorNumMuyGrande () {
+      document.getElementById('errorMuyGrande').hidden = false
+      document.getElementById('errorNan').hidden = true
+    }
+    function ocultaErroresNum () {
+      document.getElementById('errorMuyGrande').hidden = true
+      document.getElementById('errorNan').hidden = true
+    }
+    function muestraErrorMuyChico () {
+      document.getElementById('errorMuyChico').hidden = false
+    } 
+    function ocultaErrorTxt () {
+      document.getElementById('errorMuyChico').hidden = true
+    } 
+    
+    function muestraErrorOpcion () {
+      document.getElementById('noOpciones').hidden = false
+    }
+    function quitaErrorOpcion () {
+      document.getElementById('noOpciones').hidden = true
+
+    }
+
+    function validacionGeneral (num, txt, opc) {
+      if (num == '<=10' && txt == '>10' && opc == 'val') {
+        document.getElementById('bien').hidden = false
+        document.getElementById('mal').hidden = true
+      } else {
+        document.getElementById('bien').hidden = true
+        document.getElementById('mal').hidden = false
+      }
+    }
+
+  </script>
+</body>
+</html>
