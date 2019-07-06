@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h3>Ejercicio</h3>
+    <p>Poner un botón que cuando se presiona suma 1 a los divs dentro de div.nums</p>
+  </div>
+  <div class="nums">
+    <div class="elem">1</div>
+    <div class="elem">2</div>
+    <div class="elem">3</div>
+    <div class="elem">4</div>
+    <div class="elem">5</div>
+  </div>
+  <button onclick="suma1ATodos()" >Suma 1</button>
+  <script>
+    function suma1ATodos () {
+      console.log('hola')
+
+      let hijos = document.getElementsByClassName('nums')[0].children
+
+      for (let i = 0; i < hijos.length; i++) {
+        console.log(hijos[i])
+      }
+
+      for (const iterator of object) {
+        
+      }
+
+      for (const key in object) {
+        console.log(key)
+      }
+
+      hijos.forEach(element => {
+        console.log(element)
+      });
+      // seleccionar todos los divs dentro de .nums
+      // recorrer estos divs e irle sumando 1 a su innerHTML
+    }
+  </script>
+</body>
+</html>
